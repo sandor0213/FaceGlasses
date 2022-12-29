@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  FaceGlasses
 //
-//  Created by coax on 29.12.2022.
+//  Created by alexander_balogh on 29.12.2022.
 //
 
 import UIKit
