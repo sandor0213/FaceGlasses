@@ -14,7 +14,7 @@ final class ViewController: UIViewController {
         static let glassesNodeName = "glassesNode"
         static let faceNosePoint = 9
         static let objModelExtension = ".obj"
-        static let colorsArray = [UIColor.red, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.magenta, UIColor.brown, UIColor.darkGray, UIColor.gray, UIColor.lightGray, UIColor.black, UIColor.orange, UIColor.purple, UIColor.white, UIColor.cyan, UIColor.link]
+        static let colorsArray = [UIColor.red, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.magenta, UIColor.brown, UIColor.darkGray, UIColor.gray, UIColor.lightGray, UIColor.black, UIColor.orange, UIColor.purple, UIColor.white, UIColor.cyan]
         static let glassesModelsArray = [GlassesModel(title: "1", scaleFactor: 0.0041), GlassesModel(title: "2", scaleFactor: 0.048), GlassesModel(title: "1", scaleFactor: 0.0041), GlassesModel(title: "2", scaleFactor: 0.048), GlassesModel(title: "1", scaleFactor: 0.0041), GlassesModel(title: "2", scaleFactor: 0.048), GlassesModel(title: "1", scaleFactor: 0.0041), GlassesModel(title: "2", scaleFactor: 0.048)]
     }
     
@@ -25,7 +25,8 @@ final class ViewController: UIViewController {
     
     @IBOutlet private var sceneView: ARSCNView!
     @IBOutlet private weak var infoLabel: UILabel!
-    @IBOutlet private weak var settingCollectionView: UICollectionView!
+    @IBOutlet private weak var settingGlassesCollectionView: UICollectionView!
+    @IBOutlet private weak var settingColorCollectionView: UICollectionView!
     
     private var node: SCNNode?
     private var glassIndex = 0
@@ -46,7 +47,6 @@ final class ViewController: UIViewController {
         let scene = SCNScene()
         sceneView.scene = scene
         sceneView.autoenablesDefaultLighting = true
-        settingCollectionView.collectionViewLayout = UICollectionViewCompositionalLayout(section: NSCollectionLayoutSection.collectionLayoutSection)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,22 +92,18 @@ extension ViewController: ARSCNViewDelegate {
 }
 
 extension ViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        CellType.allCases.count
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        section == CellType.glasses.rawValue ? Constant.glassesModelsArray.count : section == CellType.colors.rawValue ? Constant.colorsArray.count : 0
+        collectionView == settingGlassesCollectionView ? Constant.glassesModelsArray.count : collectionView == settingColorCollectionView ? Constant.colorsArray.count : 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.section {
-        case CellType.glasses.rawValue:
+        switch collectionView {
+        case settingGlassesCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingGlassCollectionViewCell.identifier, for: indexPath) as! SettingGlassCollectionViewCell
             let settingGlasses = SettingGlasses(imageTitle: Constant.glassesModelsArray[indexPath.item].title, isSelected: glassIndex == indexPath.item)
             cell.setup(settingGlasses)
             return cell
-        case CellType.colors.rawValue:
+        case settingColorCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingColorCollectionViewCell.identifier, for: indexPath) as! SettingColorCollectionViewCell
             let settingColor = SettingColor(color: Constant.colorsArray[indexPath.item], isSelected: colorIndex == indexPath.item)
             cell.setup(settingColor)
@@ -122,13 +118,13 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var oldIndexPath: IndexPath?
-        switch indexPath.section {
-        case CellType.glasses.rawValue:
+        switch collectionView {
+        case settingGlassesCollectionView:
             if glassIndex >= 0 {
                 oldIndexPath = IndexPath(item: glassIndex, section: indexPath.section)
             }
             glassIndex = indexPath.item
-        case CellType.colors.rawValue:
+        case settingColorCollectionView:
             if colorIndex >= 0 {
                 oldIndexPath = IndexPath(item: colorIndex, section: indexPath.section)
             }
@@ -151,7 +147,8 @@ private extension ViewController {
     }
     func showGlassesSettings() {
         infoLabel.isHidden = true
-        settingCollectionView.isHidden = false
+        settingGlassesCollectionView.isHidden = false
+        settingColorCollectionView.isHidden = false
     }
     
     func updateFeatures(for node: SCNNode, using anchor: ARFaceAnchor) {

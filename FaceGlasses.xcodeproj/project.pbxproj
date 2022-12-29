@@ -20,7 +20,6 @@
 		48AAADDF295D93100070E028 /* SettingGlassCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AAADDE295D93100070E028 /* SettingGlassCollectionViewCell.swift */; };
 		48AAADE1295D93260070E028 /* SettingColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AAADE0295D93260070E028 /* SettingColorCollectionViewCell.swift */; };
 		48AAADE4295D98070070E028 /* SCNNode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AAADE3295D98070070E028 /* SCNNode+Extension.swift */; };
-		48AAADE6295D9E8B0070E028 /* NSCollectionLayoutSection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AAADE5295D9E8B0070E028 /* NSCollectionLayoutSection+Extension.swift */; };
 		48C885AF295DC0FE00BE1CAF /* SettingGlasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C885AE295DC0FE00BE1CAF /* SettingGlasses.swift */; };
 		48C885B1295DC11000BE1CAF /* SettingColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C885B0295DC11000BE1CAF /* SettingColor.swift */; };
 		48C885B3295DC8DB00BE1CAF /* GlassesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C885B2295DC8DB00BE1CAF /* GlassesModel.swift */; };
@@ -41,7 +40,6 @@
 		48AAADDE295D93100070E028 /* SettingGlassCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingGlassCollectionViewCell.swift; sourceTree = "<group>"; };
 		48AAADE0295D93260070E028 /* SettingColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		48AAADE3295D98070070E028 /* SCNNode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extension.swift"; sourceTree = "<group>"; };
-		48AAADE5295D9E8B0070E028 /* NSCollectionLayoutSection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutSection+Extension.swift"; sourceTree = "<group>"; };
 		48C885AE295DC0FE00BE1CAF /* SettingGlasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingGlasses.swift; sourceTree = "<group>"; };
 		48C885B0295DC11000BE1CAF /* SettingColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingColor.swift; sourceTree = "<group>"; };
 		48C885B2295DC8DB00BE1CAF /* GlassesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassesModel.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 				48AAADD5295D90E90070E028 /* Reusable+Extension.swift */,
 				48AAADE3295D98070070E028 /* SCNNode+Extension.swift */,
 				48AAADD7295D91020070E028 /* UIView+Extension.swift */,
-				48AAADE5295D9E8B0070E028 /* NSCollectionLayoutSection+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,7 +224,6 @@
 				48AAADE4295D98070070E028 /* SCNNode+Extension.swift in Sources */,
 				48AAADD8295D91020070E028 /* UIView+Extension.swift in Sources */,
 				48C885B1295DC11000BE1CAF /* SettingColor.swift in Sources */,
-				48AAADE6295D9E8B0070E028 /* NSCollectionLayoutSection+Extension.swift in Sources */,
 				48C885AF295DC0FE00BE1CAF /* SettingGlasses.swift in Sources */,
 				48AAADBD295D8FF60070E028 /* AppDelegate.swift in Sources */,
 				48AAADE1295D93260070E028 /* SettingColorCollectionViewCell.swift in Sources */,
@@ -390,7 +386,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -422,7 +418,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
