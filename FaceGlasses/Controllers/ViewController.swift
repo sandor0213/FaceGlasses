@@ -65,8 +65,7 @@ final class ViewController: UIViewController {
 
 extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        guard let faceAnchor = anchor as? ARFaceAnchor,
-              let device = sceneView.device else {
+        guard let device = sceneView.device else {
                   return nil
               }
         
